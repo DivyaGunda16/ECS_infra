@@ -40,7 +40,7 @@ EOF
 //ecr image
     data "aws_ecr_image" "ecr_repo_image" {
     repository_name = aws_ecr_repository.ecr_repo.name
-    image_name      = var.image
+    //image_name      = var.image
     image_tag       = "latest"
 }
 

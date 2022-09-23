@@ -7,10 +7,10 @@ variable "ECR_repo_name" {
 }
 
 /*variable "ecr_registry_id" {
-  default = "226072135796.dkr.ecr.ap-southeast-2.amazonaws.com"
+  
 }
 variable "image" {
-    default = "226072135796.dkr.ecr.ap-southeast-2.amazonaws.com/v8.node:latest"
+    default = "226072135796.dkr.ecr.ap-southeast-2.amazonaws.com"
 }
 
 */
