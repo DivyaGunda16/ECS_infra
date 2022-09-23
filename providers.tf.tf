@@ -1,6 +1,6 @@
 terraform {
   required_providers {
-    docker {
+    docker = {
       source = "divyagunda/demo"
       
     }
