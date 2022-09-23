@@ -10,7 +10,7 @@ variable "ECR_repo_name" {
   default = "226072135796.dkr.ecr.ap-southeast-2.amazonaws.com"
 }
 variable "image" {
-
+    default = "226072135796.dkr.ecr.ap-southeast-2.amazonaws.com/v8.node:latest"
 }
 
 */

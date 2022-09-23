@@ -1,11 +1,7 @@
 //ecr repo 
 resource "aws_ecr_repository" "ecr_repo" {
   name                 =  var.ECR_repo_name
- // registry_id        =  var.ecr_registry_id
 
-  //image_scanning_configuration {
-   // scan_on_push = true
-  //}
 }
 //ecr policy
 resource "aws_ecr_repository_policy" "ecr_repo_policy" {
@@ -42,9 +38,10 @@ EOF
 }
 
 //ecr image
-//data "aws_ecr_image" "ecr_repo_image" {
-//  repository_name = aws_ecr_repository.ecr_repo.name
-//  image_tag       = "latest"
-//}
+    data "aws_ecr_image" "ecr_repo_image" {
+    repository_name = aws_ecr_repository.ecr_repo.name
+    image_name      = var.image
+    image_tag       = "latest"
+}
 
 
