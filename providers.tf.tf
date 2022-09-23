@@ -2,7 +2,7 @@ terraform {
   required_providers {
     docker = {
       source = "divyagunda/demo"
-      
+      versiversion = "20.10.17"
     }
   }
 }
