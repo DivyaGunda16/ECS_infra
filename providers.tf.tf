@@ -6,7 +6,7 @@ terraform {
     }
     aws = {
       sousource = "hashicorp/aws"
-      version = "v1.3.0"
+      version = "1.3.0"
     }
   }
 }
