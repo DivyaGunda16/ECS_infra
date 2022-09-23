@@ -1,4 +1,4 @@
-//ecr repo 
+/*//ecr repo 
 resource "aws_ecr_repository" "ecr_repo" {
   name                 =  var.ECR_repo_name
 
@@ -35,13 +35,17 @@ resource "aws_ecr_repository_policy" "ecr_repo_policy" {
     ]
 }
 EOF
-}
+}*/
 
 //ecr image
-    data "aws_ecr_image" "ecr_repo_image" {
-    repository_name = aws_ecr_repository.ecr_repo.name
-    //image_name      = var.image
-    image_tag       = "latest"
+
+resource "docker_image" "image_name" {
+  name = var.image
 }
+resource "docker_container" "container_name" {
+  image = docker_image.image_name.latest
+  name = "v8.node_container"
+}
+
 
 
