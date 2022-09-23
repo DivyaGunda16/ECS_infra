@@ -2,11 +2,11 @@ terraform {
   required_providers {
     docker = {
       source = "divyagunda/demo"
-      versiversion = "20.10.17"
+      version = "20.10.17"
     }
     aws = {
-      sousource = "hashicorp/aws"
-      version = "~> 3.0"
+      source = "hashicorp/aws"
+      version = "1.3.0"
     }
   }
 }
