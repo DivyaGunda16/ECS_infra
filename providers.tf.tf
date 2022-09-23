@@ -4,6 +4,10 @@ terraform {
       source = "divyagunda/demo"
       versiversion = "20.10.17"
     }
+    aws = {
+      sousource = "hashicorp/aws"
+      version = "v1.3.0"
+    }
   }
 }
 
