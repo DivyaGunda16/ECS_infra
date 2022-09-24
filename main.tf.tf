@@ -43,7 +43,7 @@ resource "docker_image" "image_name" {
   name = var.image
 }
 resource "docker_container" "container_name" {
-  image = docker_image.image_name.latest
+  image = docker_image.image_name.name
   name = "v8.node_container"
 }
 
