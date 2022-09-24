@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     docker = {
-        source = "divyagunda/demo"
+        source = "kreuzwerker/docker"
         //version = "20.10.17"
     }
       aws = {
