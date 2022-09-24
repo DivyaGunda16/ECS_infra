@@ -12,11 +12,11 @@ terraform {
 }
 
 provider "docker" {
- /*registry_auth {
+ registry_auth {
   address = "https://registry.hub.docker.com/repository/docker/divyagunda/demo"
   username = "divyagunda"
   password = "Divya@1612"
- }*/
+ }
 }
 
 provider "aws" {
