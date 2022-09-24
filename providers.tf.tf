@@ -1,31 +1,29 @@
 terraform {
   required_providers {
     docker = {
-        source = "registry.terraform.io/divyagunda/demo"
-        version = "20.10.17"
+        source = "divyagunda/demo"
+        //version = "20.10.17"
+    }
+      aws = {
+        source = "hashicorp/aws"
+        //version = "~> 7.34"
     }
   }
 }
 
 provider "docker" {
-
-}
-
-terraform {
-  required_providers {
-     aws = {
-        source = "registry.terraform.io/hashicorp/aws"
-        version = "2.7.34"
-    }
-  }
+ registry_auth {
+  address = "https://registry.hub.docker.com/repository/docker/divyagunda/demo"
+  username = "divyagunda"
+  password = "Divya@1612"
+ }
 }
 
 provider "aws" {
   shared_credentials_file = "/home/ubuntu/.aws/credentials"
   
   //profile = "bttstaging"
-  region =  var.region
-  
+  region =  var.region  
 }
 
 
