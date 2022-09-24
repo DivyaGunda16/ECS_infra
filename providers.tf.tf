@@ -4,10 +4,10 @@ terraform {
         source = "kreuzwerker/docker"
         //version = "20.10.17"
     }
-      /*aws = {
+      aws = {
         source = "hashicorp/aws"
         //version = "~> 7.34"
-    }*/
+    }
   }
 }
 

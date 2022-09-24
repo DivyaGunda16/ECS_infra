@@ -1,4 +1,15 @@
-/*//ecr repo 
+//ecr image
+
+resource "docker_image" "image_name" {
+  name = var.image
+}
+resource "docker_container" "container_name" {
+  image = docker_image.image_name.name
+  name = "v8.node_container"
+}
+
+
+//ecr repo 
 resource "aws_ecr_repository" "ecr_repo" {
   name                 =  var.ECR_repo_name
 
@@ -35,17 +46,8 @@ resource "aws_ecr_repository_policy" "ecr_repo_policy" {
     ]
 }
 EOF
-}*/
-
-//ecr image
-
-resource "docker_image" "image_name" {
-  name = var.image
 }
-resource "docker_container" "container_name" {
-  image = docker_image.image_name.name
-  name = "v8.node_container"
-}
+
 
 
 
