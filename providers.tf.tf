@@ -1,4 +1,4 @@
-/*terraform {
+terraform {
   required_providers {
     docker = {
         source = "kreuzwerker/docker"
@@ -17,7 +17,7 @@ provider "docker" {
   username = "divyagunda"
   password = "Divya@1612"
  }
-}*/
+}
 
 provider "aws" {
   //shared_credentials_file = "/home/ubuntu/.aws/credentials"
