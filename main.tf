@@ -87,16 +87,14 @@ policy = <<EOF
 EOF
 */
 
-resource "aws_ecs_task_definition" "test-def" {
+resource "aws_ecs_task_definition" "ecs-fe-def" {
   family                   = "ehq_fe_task"
-  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
-  network_mode             = "Bridge"
+  execution_role_arn       = aws_iam_role.ecs-fe_task_execution_role.arn
+  network_mode             = "bridge"
   requires_compatibilities = ["EXTERNAL","EC2"]
   cpu                      = null
   memory                   = null
-
-  
-container_definitions = jsonencode([
+  container_definitions = jsonencode([
     {
       name      = var.container_name  
       image     = var.container_image       
