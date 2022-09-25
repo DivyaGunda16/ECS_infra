@@ -86,3 +86,42 @@ policy = <<EOF
 }
 EOF
 */
+
+resource "aws_ecs_task_definition" "test-def" {
+  family                   = "ehq_fe_task"
+  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
+  network_mode             = "Bridge"
+  requires_compatibilities = ["EXTERNAL","EC2"]
+  cpu                      = null
+  memory                   = null
+
+  
+container_definitions = jsonencode([
+    {
+      name      = var.container_name  
+      image     = var.image       
+      cpu       = 0
+      memory    = 470
+      essential = true
+      "environment": [
+      {
+        name = "NODE_ENV"
+       //"VARNAME", 
+       value = "production"
+       //"VARVAL"
+      },
+      {
+          name = "SENTRY_PUBLIC_DSN"
+          value = "https://04b39aec2353486c9652b7181e7f0e3b@sentry.io/133522"
+      }
+    ],
+      portMappings = [
+        {
+          containerPort = 3000
+          hostPort      = 0    
+        }
+      ]
+    }
+    
+  ])
+}
