@@ -54,9 +54,6 @@ resource "aws_ecs_cluster" "ecs-fe_cluster" {
   name = var.ECS_Cluster_name
 }
 
-/*resource "aws_ecs_" "name" {
-  
-}
 policy = <<EOF
 {
     "Version": "2012-10-17",
@@ -85,9 +82,9 @@ policy = <<EOF
     ]
 }
 EOF
-*/
 
-resource "aws_ecs_task_definition" "ecs-fe-def" {
+
+/*resource "aws_ecs_task_definition" "ecs-fe-def" {
   family                   = "ehq_fe_task"
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   network_mode             = "bridge"
@@ -122,4 +119,4 @@ resource "aws_ecs_task_definition" "ecs-fe-def" {
     }
     
   ])
-}
+}*/
