@@ -52,7 +52,7 @@ EOF
 //ecs cluster
 resource "aws_ecs_cluster" "ecs-fe_cluster" {
   name = var.ECS_Cluster_name
-  policy_arn = "aws_iam_policy.ecs_permissions.arn"
+  //policy = "aws_iam_policy.ecs_permissions.arn"
 }
 /*policy = <<EOF
 {
