@@ -52,8 +52,9 @@ EOF
 //ecs cluster
 resource "aws_ecs_cluster" "ecs-fe_cluster" {
   name = var.ECS_Cluster_name
-
-policy = <<EOF
+  policy_arn = "aws_iam_policy.ecs_permissions.arn"
+}
+/*policy = <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -81,7 +82,7 @@ policy = <<EOF
     ]
 }
 EOF
-}
+}*/
 
 /*resource "aws_ecs_task_definition" "ecs-fe-def" {
   family                   = "ehq_fe_task"
