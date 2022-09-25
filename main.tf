@@ -89,7 +89,7 @@ EOF
 
 resource "aws_ecs_task_definition" "ecs-fe-def" {
   family                   = "ehq_fe_task"
-  execution_role_arn       = aws_iam_role.ecs-fe_task_execution_role.arn
+  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   network_mode             = "bridge"
   requires_compatibilities = ["EXTERNAL","EC2"]
   cpu                      = null
