@@ -99,7 +99,7 @@ resource "aws_ecs_task_definition" "test-def" {
 container_definitions = jsonencode([
     {
       name      = var.container_name  
-      image     = var.image       
+      image     = var.container_image       
       cpu       = 0
       memory    = 470
       essential = true
