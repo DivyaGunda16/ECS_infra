@@ -4,7 +4,10 @@ data "aws_iam_policy_document" "ecs_assume_role_policy" {
   statement {
     sid     = ""
     effect  = "Allow"
-    actions = ["sts:AssumeRole"]
+    actions = [
+      "iam:CreateRole",
+      "iam:CreatePolicy",
+      "sts:AssumeRole"]
 
     principals {
       type        = "Service"
