@@ -96,7 +96,7 @@ resource "aws_ecs_task_definition" "ecs-fe-def" {
 
 resource "aws_ecs_service" "ecs_service_name" {
   name            = var.ecs-fe_service 
-  type            = var.ecs-fe_servicetype
+  //type            = var.ecs-fe_servicetype
   cluster         = aws_ecs_cluster.ecs-fe_cluster.id
   task_definition = aws_ecs_task_definition.ecs-fe-def.arn
   desired_count   = var.ecs_instance_count
