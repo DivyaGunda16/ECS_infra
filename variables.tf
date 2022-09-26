@@ -19,11 +19,11 @@ variable "ECS_Cluster_name" {
 
 variable "ecs_task_execution_role" {
   default = "ecsTaskExecutionRole"
-}/*
+}
 
 variable "container_name" {
   default = "ehq_v8_node"
 }
 variable "container_image" {
   default = "v8node:latest"
-}*/
+}
