@@ -120,3 +120,4 @@ EOF
     
   ])
 }*/
+depends_on = [aws_iam_role_policy_attachment.ecs_task_execution_role]
