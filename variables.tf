@@ -17,7 +17,7 @@ variable "ECS_Cluster_name" {
     default = "ecs-fe"
 }
 
-variable "ecs-task-execution-role-name" {
+variable "ecs_task_execution_role_name" {
   default = "ecsTaskExecutionRole"
 }
 
