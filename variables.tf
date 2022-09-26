@@ -28,7 +28,7 @@ variable "container_image" {
   default = "v8node:latest"
 }
 
-/*variable "ecs-fe_service" {
+variable "ecs-fe_service" {
   default = "ehq_fe_service"
 }
 
@@ -38,4 +38,4 @@ variable "ecs-fe_servicetype" {
 
 variable "ecs_instance_count" {
   default = "2"
-}*/
+}
