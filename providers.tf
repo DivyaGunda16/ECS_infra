@@ -20,7 +20,7 @@ provider "docker" {
 }
 
 provider "aws" {
-  //shared_credentials_file = "/home/ubuntu/.aws/credentials"
+  shared_credentials_file = "/home/ubuntu/.aws/credentials"
   
   //profile = "bttstaging"
   region =  var.region  
