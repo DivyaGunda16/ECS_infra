@@ -14,10 +14,10 @@ variable "image" {
 }
 
 variable "ECS_Cluster_name" {
-    default = "ecs-fe"
+    default = "ehq-fe"
 }
 
-variable "ecs_task_execution_role_name" {
+variable "ecs_task_execution_role" {
   default = "ecsTaskExecutionRole"
 }
 
@@ -27,3 +27,15 @@ variable "container_name" {
 variable "container_image" {
   default = "v8node:latest"
 }
+
+/*variable "ecs-fe_service" {
+  default = "ehq_fe_service"
+}
+
+variable "ecs-fe_servicetype" {
+  default = "REPLICA"
+}
+
+variable "ecs_instance_count" {
+  default = "2"
+}*/

@@ -92,4 +92,28 @@ resource "aws_ecs_task_definition" "ecs-fe-def" {
     
   ])
 }
-//depends_on = [aws_iam_role_policy_attachment.ecs_task_execution_role]
+
+/*
+resource "aws_ecs_service" "ehq-fe_service" {
+  name            = var.ecs-fe_service 
+  type            = var.ecs-fe_servicetype
+  cluster         = aws_ecs_cluster.ecs-fe_cluster.id
+  task_definition = aws_ecs_task_definition.ecs-fe-def.arn
+  desired_count   = var.ecs_instance_count
+  launch_type     = "EC2"
+
+  network_configuration {
+    security_groups  = [var.security_group-ecs]
+    subnets          = var.aws_subnet_private
+    assign_public_ip = true
+  }
+
+  load_balancer {
+    target_group_arn = var.aws-alb-target-group-arn
+    container_name   = var.container_name  //ehq_v8_node
+    container_port   = var.container_port_ecs //3000
+  }
+
+  depends_on = [aws_iam_role_policy_attachment.ecs_task_execution_role,aws_ecr_repository_policy.ecr_repo_policy,time_sleep.wait_900_seconds]//aws_ecr_repository_policy" "ecr_repo_policy
+}*/
+
