@@ -32,9 +32,6 @@ variable "ecs-fe_service" {
   default = "ehq_fe_service"
 }
 
-/*variable "ecs-fe_servicetype" {
-  default = "REPLICA"
-}*/
 
 variable "ecs_instance_count" {
   default = "2"
