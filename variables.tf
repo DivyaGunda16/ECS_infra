@@ -36,3 +36,22 @@ variable "ecs-fe_service" {
 variable "ecs_instance_count" {
   default = "2"
 }
+
+variable "aws-alb-target-group-arn" {
+  type = string
+  default="ehq-fe-target-group"
+}
+
+variable "container_port_ecs" {
+  default = "3000"
+}
+
+variable "aws_subnet_private" {
+  type = list(string)
+  default = [ "subnet-035832c8142668796", "subnet-0145784503ad5ce61" ]
+}
+
+variable "security_group-ecs" {
+  type = string
+  default = "testapp-ecs-tasks-security-group"
+}

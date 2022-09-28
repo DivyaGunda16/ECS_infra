@@ -101,10 +101,10 @@ resource "aws_ecs_service" "ecs_service_name" {
   task_definition = aws_ecs_task_definition.ecs-fe-def.arn
   desired_count   = var.ecs_instance_count
   launch_type     = "EC2"
-}
-/*
+//}
+
   network_configuration {
-    security_groups  = [var.security_group-ecs]
+    security_groups  = var.security_group-ecs
     subnets          = var.aws_subnet_private
     assign_public_ip = true
   }
@@ -116,5 +116,5 @@ resource "aws_ecs_service" "ecs_service_name" {
   }
 
   depends_on = [aws_iam_role_policy_attachment.ecs_task_execution_role,aws_ecr_repository_policy.ecr_repo_policy,time_sleep.wait_900_seconds]//aws_ecr_repository_policy" "ecr_repo_policy
-}*/
+}
 
