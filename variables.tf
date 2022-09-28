@@ -37,9 +37,9 @@ variable "ecs_instance_count" {
   default = "2"
 }
 
-variable "aws-alb-target-group-arn" {
+variable "aws_alb_target_group" {
   type = string
-  default="ehq-fe-target-group"
+ default="ehq-fe-target-group"
 }
 
 variable "container_port_ecs" {
