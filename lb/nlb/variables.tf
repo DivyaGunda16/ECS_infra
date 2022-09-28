@@ -1,7 +1,7 @@
 
 variable "aws_subnet_public" {
   type = list(string)
-  default = [ "value" ]
+  default = [ "subnet-078c624456b4ccd1a", "subnet-090f6c1d1c086bd91s" ]
 }
 
 variable "health_check_path" {
@@ -14,10 +14,13 @@ variable "vpc_id" {
 }
 
 variable "nlb_staging" {
-    
-	}
+    default = "NLB-Staging-v00"
+}
+
 variable "nlb_tg_group1" {
-	}
+    default = "NLB-TargetGroup-22-v00"
+}
+
 variable "nlb_tg_group2" {
- 
-	}
+ default = "NLB-TargetGroup-443-v00"
+}

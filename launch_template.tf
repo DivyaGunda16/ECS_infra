@@ -23,8 +23,7 @@ resource "aws_launch_template" "launch_template" {
   name = "EC2ContainerService-ehq-fe-EcsInstanceLc-1SNCOTVLMY2LV"
   image_id = data.aws_ami.aws_optimized_ecs.id//ami-01dee8f614115c3b8
   instance_type = "t3.medium"
-  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
-
+  
   block_device_mappings {
     device_name = "/dev/xvda"
 
@@ -46,6 +45,10 @@ resource "aws_launch_template" "launch_template" {
 
   credit_specification {
     cpu_credits = "unlimited"
+  }
+
+  iam_instance_profile {
+     name = aws_iam_instance_profile.ec2_profile.name
   }
 
   

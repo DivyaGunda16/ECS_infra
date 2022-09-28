@@ -96,15 +96,14 @@ resource "aws_ecs_task_definition" "ecs-fe-def" {
 
 resource "aws_ecs_service" "ecs_service_name" {
   name            = var.ecs-fe_service 
-  //type            = var.ecs-fe_servicetype
   cluster         = aws_ecs_cluster.ecs-fe_cluster.id
   task_definition = aws_ecs_task_definition.ecs-fe-def.arn
   desired_count   = var.ecs_instance_count
   launch_type     = "EC2"
-//}
+
 
   network_configuration {
-    security_groups  = var.security_group-ecs
+    security_groups  = [var.security_group-ecs]
     subnets          = var.aws_subnet_private
     assign_public_ip = true
   }
