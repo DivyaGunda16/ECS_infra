@@ -55,3 +55,8 @@ variable "security_group-ecs" {
   type = string
   default = "testapp-ecs-tasks-security-group"
 }
+
+variable "aws_appautoscaling_policy" {
+  default     = "scale-down"
+  description = "Name of Autoscaling policy"
+}
