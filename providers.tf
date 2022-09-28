@@ -12,18 +12,12 @@ terraform {
 }
 
 provider "docker" {
- registry_auth {
-  address = "https://registry.hub.docker.com/repository/docker/divyagunda/demo"
-  username = "divyagunda"
-  password = "Divya@1612"
- }
+
 }
 
 provider "aws" {
   shared_credentials_files = ["/home/ubuntu/.aws/credentials"]
-  
-  //profile = "bttstaging"
-  region =  var.region  
+   region =  var.region  
 }
 
 
