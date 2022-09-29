@@ -39,7 +39,7 @@ variable "ecs_instance_count" {
 
 variable "aws-alb-target-group-arn" {
   type = string
-  default="ehq-fe-target-group"
+  //default="ehq-fe-target-group"
  //default = "arn:aws:elasticloadbalancing:ap-southeast-2:226072135796:targetgroup/ehq-fe-target-group/e8f92877ac898a25"
 }
 
