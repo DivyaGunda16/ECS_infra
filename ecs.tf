@@ -93,6 +93,26 @@ resource "aws_ecs_task_definition" "ecs-fe-def" {
   ])
 }
 
+# this security group for ecs - Traffic to the ECS cluster should only come from the ALB
+resource "aws_security_group" "ecs_sg" {
+  name        = var.aws_security_group_ecs
+  description = "allow inbound access from the ALB only"
+  vpc_id      = var.vpc_id
+
+  ingress {
+    protocol        = "tcp"
+    from_port       = var.app_port
+    to_port         = var.app_port
+    security_groups = [aws_security_group.alb-sg.id]
+  }
+
+  egress {
+    protocol    = "-1"
+    from_port   = 0
+    to_port     = 0
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
 
 resource "aws_ecs_service" "ecs_service_name" {
   name            = var.ecs-fe_service 
@@ -103,17 +123,17 @@ resource "aws_ecs_service" "ecs_service_name" {
 
 
   network_configuration {
-    security_groups  = [var.security_group-ecs]
+    security_groups  = [aws_security_group.ecs_sg.id]
     subnets          = var.aws_subnet_private
     assign_public_ip = true
   }
 
   load_balancer {
-    target_group_arn = var.aws-alb-target-group-arn
+    target_group_arn = aws_alb_target_group.ALB-TG.arn
     container_name   = var.container_name  //ehq_v8_node
     container_port   = var.container_port_ecs //3000
   }
 
-  depends_on = [aws_iam_role.ecs_task_execution_role, aws_iam_role_policy_attachment.ecs-task-execution-role-policy, aws_ecr_repository_policy.ecr_repo_policy, aws_iam_instance_profile.ec2_profile]
+  depends_on = [aws_iam_role.ecs_task_execution_role, aws_iam_role_policy_attachment.ecs-task-execution-role-policy, aws_ecr_repository_policy.ecr_repo_policy, aws_iam_instance_profile.ec2_profile, aws_alb_target_group.ALB-TG]
 }
 
