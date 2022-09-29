@@ -29,7 +29,7 @@ variable "container_image" {
 
 variable "aws_security_group_ecs" {
   type = string
-  default = "testapp-ecs-tasks-security-group"
+  default = "RAX-SecurityGroups-StagingEhqfeEcsSecurityGroup-1GRAUAF7QQVP3"
 }
 
 variable "vpc_id" {
@@ -96,7 +96,7 @@ variable "lb-alg-type"{
 
 variable "aws_security_group" {
   type = string
-  default = "testapp-load-balancer-security-group"
+  default = "RAX-SecurityGroups-StagingALBSecurityGroup-B43Y3VTV9FP2"
 }
 
 variable "health_check_path" {
@@ -119,4 +119,8 @@ variable "nlb_tg_group1" {
 
 variable "nlb_tg_group2" {
  default = "NLB-TargetGroup-443-v00"
+}
+
+variable "nlb_tg_group3" {
+  default = "NLB-TargetGroup-80"
 }
