@@ -7,7 +7,7 @@ resource "aws_security_group" "alb-sg" {
     protocol    = "tcp"
     from_port   = var.app_port
     to_port     = var.app_port
-    security_groups =["sg-051255f9b5fc62a0e"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {

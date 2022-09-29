@@ -8,7 +8,7 @@ variable "ECR_repo_name" {
 
 variable "image" {
     
-    default = "divyagunda/demo:latest"
+    default = "v8.node:latest"
 }
 
 variable "ECS_Cluster_name" {
