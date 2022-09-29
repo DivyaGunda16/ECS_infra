@@ -105,7 +105,7 @@ variable "health_check_path" {
 
 //nlb
 
-variable "health_check_path" {
+variable "health_check_path_nlb" {
   default = "/"
 }
 

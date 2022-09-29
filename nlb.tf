@@ -25,7 +25,7 @@ resource "aws_alb_target_group" "NLB-tg443" {
   health_check {
     healthy_threshold   = 5
     unhealthy_threshold = 5
-    path                = var.health_check_path
+    path                = var.health_check_path_nlb
     interval            = 30
 
   }
