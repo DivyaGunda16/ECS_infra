@@ -21,7 +21,7 @@ variable "alb_name" {
 
 variable "ALB-TG" {
   type = string
-  default="ehq-fe-target-group"
+  //default="ehq-fe-target-group"
 }
 
 variable "protocol" {

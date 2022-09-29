@@ -109,7 +109,7 @@ resource "aws_ecs_service" "ecs_service_name" {
   }
 
   load_balancer {
-    target_group_arn = var.aws_alb_target_group
+    target_group_arn = var.aws-alb-target-group-arn
     container_name   = var.container_name  //ehq_v8_node
     container_port   = var.container_port_ecs //3000
   }
