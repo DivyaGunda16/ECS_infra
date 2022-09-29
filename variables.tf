@@ -8,7 +8,7 @@ variable "ECR_repo_name" {
 
 variable "image" {
     
-    default = "v8.node:latest"
+    default = "226072135796.dkr.ecr.eu-west-1.amazonaws.com/v8.node:latest"
 }
 
 variable "ECS_Cluster_name" {
