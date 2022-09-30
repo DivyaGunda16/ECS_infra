@@ -81,6 +81,7 @@ resource "aws_launch_template" "launch_template" {
 
   network_interfaces {
     associate_public_ip_address = true
+    security_groups = [ aws_security_group.ecs_sg.id, aws_security_group.alb-sg.id ]
   }
 
   placement {
