@@ -51,8 +51,8 @@ variable "ecs_instance_count" {
 }
 
 variable "aws_subnet_private" {
-  type = string
-  default = "subnet-035832c8142668796"  //, "subnet-0145784503ad5ce61" ]
+  type = list(string)
+  default = [ "subnet-035832c8142668796", "subnet-0145784503ad5ce61" ]
 }
 
 variable "container_port_ecs" {
