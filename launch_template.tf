@@ -85,7 +85,7 @@ resource "aws_launch_template" "launch_template" {
     //subnet_id = var.aws_subnet_private
   }
 
-  vpc_security_group_ids = [ aws_security_group.alb-sg.id ]
+  //vpc_security_group_ids = [ aws_security_group.alb-sg.id ]
 
   placement {
     availability_zone = "eu-west-1"
