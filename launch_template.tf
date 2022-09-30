@@ -37,11 +37,11 @@ resource "aws_launch_template" "launch_template" {
   capacity_reservation_specification {
     capacity_reservation_preference = "open"
   }
-
+/*
   cpu_options {
     core_count       = 2
     threads_per_core = 2
-  }
+  }*/
 
   credit_specification {
     cpu_credits = "unlimited"
