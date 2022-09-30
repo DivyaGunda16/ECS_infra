@@ -15,6 +15,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   vpc_zone_identifier       = var.aws_subnet_private
   launch_template {
     id = "${aws_launch_template.launch_template.id}"
+    version = "${aws_launch_template.launch_template.latest_version}"
   }
 }
 
