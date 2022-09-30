@@ -13,7 +13,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   force_delete              = true
   placement_group           = aws_placement_group.placement_group.id
   launch_template {
-    id = aws_launch_template.launch_template.id
+    id = "${aws_launch_template.launch_template.id}"
   }
   
   vpc_zone_identifier       = var.aws_subnet_private
