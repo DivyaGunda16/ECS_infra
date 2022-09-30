@@ -20,7 +20,7 @@ data "aws_ami" "aws_optimized_ecs" {
   owners = ["amazon"] # AWS
 }
 resource "aws_launch_template" "launch_template" {
-  name = "EC2ContainerService-ehq-fe-EcsInstanceLc-1SNCOTVLMY2LV"
+  name = "EC2ContainerService-ehq-fe-EcsInstance_LT"
   image_id = data.aws_ami.aws_optimized_ecs.id//ami-01dee8f614115c3b8
   instance_type = "t3.medium"
   
