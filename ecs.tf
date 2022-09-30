@@ -85,7 +85,7 @@ resource "aws_ecs_task_definition" "ecs-fe-def" {
       portMappings = [
         {
           containerPort = 3000
-          hostPort      = 80    
+          hostPort      = 3000    
         }
       ]
     }
