@@ -1,3 +1,4 @@
+
 resource "aws_security_group" "alb-sg" {
   name        = var.aws_security_group
   description = "controls access to the ALB"
