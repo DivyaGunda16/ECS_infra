@@ -3,14 +3,14 @@
 resource "aws_alb" "alb" {
   name               = var.alb_name
   load_balancer_type ="application"
-  internal           ="true"
+  internal           = false
   subnets            = var.aws_subnet_public
   security_groups    = [aws_security_group.alb-sg.id]
 }
 
 resource "aws_alb_target_group" "ALB-TG" {
   name        = var.ALB-TG
-  port        = 80
+  port        = var.app_port
   protocol    = var.protocol
   protocol_version=var.protocol-version
   target_type = "instance"
@@ -20,14 +20,14 @@ resource "aws_alb_target_group" "ALB-TG" {
 
   health_check {
     
-    healthy_threshold   = 2
-    unhealthy_threshold = 2
-    timeout             = 5
+    healthy_threshold   = "2"
+    unhealthy_threshold = "2"
+    timeout             = "5"
     port                = var.app_port
     protocol            = var.protocol
     matcher             = "200"
     path                = var.health_check_path
-    interval            = 30
+    interval            = "30"
 
   }
 }
