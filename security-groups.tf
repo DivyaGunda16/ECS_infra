@@ -1,4 +1,4 @@
-
+/*
 resource "aws_security_group" "alb-sg" {
   name        = var.aws_security_group
   description = "controls access to the ALB"
@@ -17,7 +17,7 @@ resource "aws_security_group" "alb-sg" {
     to_port     = 0
     cidr_blocks = ["0.0.0.0/0"]
   }
-}
+}*/
 
 
 
