@@ -1,3 +1,27 @@
+resource "aws_placement_group" "placement_group_name" {
+  name     = "ecs_placement_template"
+  strategy = "spread"
+}
+
+resource "aws_autoscaling_group" "bar" {
+  name                      = "EC2ContainerService-ehq-fe-EcsInstanceAsg-1QGWJOAQTRWZP"
+  max_size                  = 8
+  min_size                  = 1
+  health_check_grace_period = 0
+  health_check_type         = "EC2"
+  desired_capacity          = 2
+  force_delete              = true
+  placement_group           = aws_placement_group.placement_group_name.id
+  launch_template {
+    id = aws_launch_template.launch_template.id
+  }
+  //launch_configuration      = aws_launch_configuration.foobar.name
+  //vpc_zone_identifier       = [aws_subnet.example1.id, aws_subnet.example2.id]
+
+
+}
+
+
 resource "aws_appautoscaling_target" "ecs_target" {
   max_capacity       = 15
   min_capacity       = 2
