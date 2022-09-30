@@ -55,6 +55,11 @@ variable "aws_subnet_private" {
   default = [ "subnet-035832c8142668796", "subnet-0145784503ad5ce61" ]
 }
 
+variable "aws_subnet_private1" {
+  type = string
+  default = "subnet-035832c8142668796" //, "subnet-0145784503ad5ce61" ]
+}
+
 variable "container_port_ecs" {
   default = "3000"
 }

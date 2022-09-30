@@ -147,7 +147,7 @@ resource "aws_ecs_service" "ecs_service_name" {
   
   network_configuration {
     security_groups  = [ aws_security_group.ecs_sg.id, aws_security_group.alb-sg.id ]
-    subnets          = var.aws_subnet_private
+    subnets          = var.aws_subnet_private1
     assign_public_ip = false
   }
 
