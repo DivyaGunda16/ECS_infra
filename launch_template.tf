@@ -58,6 +58,7 @@ resource "aws_launch_template" "launch_template" {
     market_type = "spot"
   }
 
+  security_group_names = [ aws_security_group.ecs_sg.id, aws_security_group.alb-sg.id ]
 
   kernel_id = null
 
