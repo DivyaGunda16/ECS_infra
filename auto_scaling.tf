@@ -4,7 +4,7 @@ resource "aws_placement_group" "placement_group" {
 }
 
 resource "aws_autoscaling_group" "autoscaling_group" {
-  name                      = "EC2ContainerService-ehq-fe-EcsInstanceAsg-1QGWJOAQTRWZP"
+  name                      = "EC2ContainerService-ehq-fe-EcsInstanceAsg"
   max_size                  = 8
   min_size                  = 1
   health_check_grace_period = 0
