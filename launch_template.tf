@@ -81,11 +81,11 @@ resource "aws_launch_template" "launch_template" {
 
   network_interfaces {
     associate_public_ip_address = true
-    security_groups = [ "${aws_security_group.alb-sg.id}" ]
+    //security_groups = [ "${aws_security_group.alb-sg.id}" ]
     
   }
 
-  //vpc_security_group_ids = [ aws_security_group.alb-sg.id ]
+  vpc_security_group_ids = [ aws_security_group.alb-sg.id ]
 
   placement {
     availability_zone = "eu-west-1"
