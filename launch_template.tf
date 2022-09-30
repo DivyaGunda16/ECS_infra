@@ -88,7 +88,7 @@ resource "aws_launch_template" "launch_template" {
 
   ram_disk_id = null
 
-  vpc_security_group_ids = ["sg-0380c93ad650ccba0"]
+  //vpc_security_group_ids = ["sg-0380c93ad650ccba0"]
 
   tag_specifications {
     resource_type = "instance"

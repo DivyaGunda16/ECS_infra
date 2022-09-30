@@ -24,7 +24,7 @@ variable "container_name" {
 }
 
 variable "container_image" {
-  default = "v8node:latest"
+  default = "226072135796.dkr.ecr.eu-west-1.amazonaws.com/v8.node:latest"
 }
 
 variable "aws_security_group_ecs" {

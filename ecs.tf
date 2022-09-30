@@ -59,7 +59,7 @@ resource "aws_ecs_cluster" "ecs-fe_cluster" {
 resource "aws_ecs_task_definition" "ecs-fe-def" {
   family                   = "ehq_fe_task"
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
-  network_mode             = "bridge"
+  network_mode             = "awsvpc"
   requires_compatibilities = ["EXTERNAL","EC2"]
   cpu                      = null
   memory                   = null
@@ -120,6 +120,12 @@ resource "aws_ecs_service" "ecs_service_name" {
   task_definition = aws_ecs_task_definition.ecs-fe-def.arn
   desired_count   = var.ecs_instance_count
   launch_type     = "EC2"
+  deployment_minimum_healthy_percent = 50
+  deployment_maximum_percent = 200
+  deployment_circuit_breaker {
+    enable = false
+  }
+
 
 
   network_configuration {
