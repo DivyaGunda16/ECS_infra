@@ -8,7 +8,7 @@ resource "aws_alb" "alb" {
   security_groups    = [aws_security_group.alb-sg.id]
   enable_deletion_protection = true
    access_logs {
-    bucket  = rax-staging-alb-s3bucketwithlogging-17kxxo885zto
+    bucket  = "rax-staging-alb-s3bucketwithlogging-17kxxo885zto"
     //prefix  = "test-lb"
     enabled = true
   }
