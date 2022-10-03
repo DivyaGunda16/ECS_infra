@@ -59,7 +59,7 @@ resource "aws_ecs_cluster" "ecs-fe_cluster" {
 resource "aws_ecs_task_definition" "ecs-fe-def" {
   family                   = "ehq_fe_task"
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
-  network_mode             = "awsvpc"
+  network_mode             = "bridge"
   requires_compatibilities = ["EC2"]
   cpu                      = null
   memory                   = null
@@ -104,14 +104,14 @@ resource "aws_ecs_service" "ecs_service_name" {
   deployment_minimum_healthy_percent = 50
   deployment_maximum_percent = 200
   
-  network_configuration {
-    security_groups  = [ aws_security_group.ecs_sg.id, aws_security_group.alb-sg.id ]
+  /*network_configuration {
+    security_groups  = [ aws_security_group.ecs_sg.id ]
     subnets          = var.aws_subnet_private
     assign_public_ip = false
-  }
+  }*/
 
   load_balancer {
-    target_group_arn = aws_alb_target_group.ALB-TG.arn
+    target_group_arn = aws_alb_target_group.ALB-TG.id
     container_name   = var.container_name  //ehq_v8_node
     container_port   = var.container_port_ecs //3000
 
