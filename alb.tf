@@ -7,11 +7,11 @@ resource "aws_alb" "alb" {
   subnets            = var.aws_subnet_public
   security_groups    = [aws_security_group.alb-sg.id]
   enable_deletion_protection = true
-   access_logs {
+   /*access_logs {
     bucket  = "rax-staging-alb-s3bucketwithlogging-17kxxo885zto"
     //prefix  = "test-lb"
     enabled = true
-  }
+  }*/
 }
 
 resource "aws_alb_target_group" "ALB-TG" {
