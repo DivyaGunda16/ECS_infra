@@ -5,7 +5,8 @@ yum update -y aws-cfn-bootstrap
 
 
 #!/bin/bash
-echo ECS_CLUSTER=ehq-fe > /etc/ecs/ecs.config
+#echo ECS_CLUSTER=ehq-fe > /etc/ecs/ecs.config
+sudo echo "ECS_CLUSTER=${var.ECS_Cluster_name}" >> /etc/ecs/ecs.config
 
 # Ensure SSM installed on Amazon Linux",
 # in cases where it is not available / removed",
