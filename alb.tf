@@ -19,7 +19,7 @@ resource "aws_alb_target_group" "ALB-TG" {
   port        = var.app_port
   protocol    = var.protocol
   protocol_version=var.protocol-version
-  //target_type = "instance"
+  target_type = "ip"
   vpc_id      = var.vpc_id
   deregistration_delay = 300
   load_balancing_algorithm_type = var.lb-alg-type
