@@ -68,14 +68,13 @@ resource "aws_ecs_task_definition" "ecs-fe-def" {
       name      = var.container_name  
       image     = var.container_image       
       cpu       = 0
-      memory    = 470
+      //memory    = 470
+      memory_reservation = 470
       essential = true
       "environment": [
       {
         name = "NODE_ENV"
-       //"VARNAME", 
-       value = "production"
-       //"VARVAL"
+        value = "production"
       },
       {
           name = "SENTRY_PUBLIC_DSN"
@@ -85,7 +84,7 @@ resource "aws_ecs_task_definition" "ecs-fe-def" {
       portMappings = [
         {
           containerPort = 3000
-          hostPort      = 3000    
+          hostPort      = 0    
         }
       ]
     }
@@ -101,6 +100,7 @@ resource "aws_ecs_service" "ecs_service_name" {
   desired_count   = var.ecs_instance_count
   launch_type     = "EC2"
   scheduling_strategy  = "REPLICA"
+  health_check_grace_period_seconds = 30
   deployment_minimum_healthy_percent = 50
   deployment_maximum_percent = 200
   
