@@ -69,7 +69,7 @@ resource "aws_ecs_task_definition" "ecs-fe-def" {
       image     = var.container_image       
       cpu       = 0
       //memory    = 470
-      memory_reservation = 470
+      memoryReservation = 470
       essential = true
       "environment": [
       {
