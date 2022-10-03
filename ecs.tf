@@ -61,8 +61,8 @@ resource "aws_ecs_task_definition" "ecs-fe-def" {
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   network_mode             = "bridge"
   requires_compatibilities = ["EC2"]
-  cpu                      = null
-  memory                   = null
+  cpu                      = 2048
+  memory                   = 2048
   container_definitions = jsonencode([
     {
       name      = var.container_name  
