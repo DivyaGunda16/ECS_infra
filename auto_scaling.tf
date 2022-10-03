@@ -1,7 +1,7 @@
-resource "aws_placement_group" "placement_group" {
+/*resource "aws_placement_group" "placement_group" {
   name     = "ecs_placement_template"
   strategy = "spread"
-}
+}*/
 
 resource "aws_autoscaling_group" "autoscaling_group" {
   name                      = "EC2ContainerService-ehq-fe-EcsInstanceAsg"
@@ -11,7 +11,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   health_check_type         = "EC2"
   desired_capacity          = 2
   force_delete              = true
-  placement_group           = aws_placement_group.placement_group.id
+  //placement_group           = aws_placement_group.placement_group.id
   vpc_zone_identifier       = var.aws_subnet_private
   //vpc_zone_identifier  = var.aws_subnet_private1
 

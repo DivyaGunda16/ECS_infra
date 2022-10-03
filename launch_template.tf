@@ -58,7 +58,7 @@ resource "aws_launch_template" "launch_template" {
     market_type = "spot"
   }
 
-  //security_group_names = [ aws_security_group.ecs_sg.id, aws_security_group.alb-sg.id ]
+  security_group_names = [ aws_security_group.ecs_sg.id ]
 
   kernel_id = null
 
@@ -72,7 +72,7 @@ resource "aws_launch_template" "launch_template" {
     http_endpoint               = "enabled"
     http_tokens                 = "required"
     http_put_response_hop_limit = 1
-    instance_metadata_tags      = "enabled"
+    instance_metadata_tags      = "disabled"
   }
 
   monitoring {

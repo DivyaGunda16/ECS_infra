@@ -109,21 +109,21 @@ variable "health_check_path" {
 }
 
 //nlb
-
+/*
 variable "health_check_path_nlb" {
   default = "/"
 }
-
+*/
 variable "nlb_staging" {
     default = "NLB-Staging-v00"
 }
 
 variable "nlb_tg_group1" {
-    default = "NLB-TargetGroup-22-v00"
+    default = "NLB-TargetGroup-443-v00"
 }
 
 variable "nlb_tg_group2" {
- default = "NLB-TargetGroup-443-v00"
+ default = "NLB-TargetGroup-22-v00"
 }
 
 variable "nlb_tg_group3" {

@@ -3,9 +3,15 @@
 resource "aws_alb" "alb" {
   name               = var.alb_name
   load_balancer_type ="application"
-  internal           = false
+  internal           = true
   subnets            = var.aws_subnet_public
   security_groups    = [aws_security_group.alb-sg.id]
+  enable_deletion_protection = true
+   access_logs {
+    bucket  = rax-staging-alb-s3bucketwithlogging-17kxxo885zto
+    //prefix  = "test-lb"
+    enabled = true
+  }
 }
 
 resource "aws_alb_target_group" "ALB-TG" {
@@ -13,7 +19,7 @@ resource "aws_alb_target_group" "ALB-TG" {
   port        = var.app_port
   protocol    = var.protocol
   protocol_version=var.protocol-version
-  target_type = "ip"
+  //target_type = "instance"
   vpc_id      = var.vpc_id
   deregistration_delay = 300
   load_balancing_algorithm_type = var.lb-alg-type
@@ -23,7 +29,7 @@ resource "aws_alb_target_group" "ALB-TG" {
     healthy_threshold   = "2"
     unhealthy_threshold = "2"
     timeout             = "5"
-    port                = var.app_port
+    //port                = var.app_port
     protocol            = var.protocol
     matcher             = "200"
     path                = var.health_check_path
