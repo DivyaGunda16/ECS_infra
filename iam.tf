@@ -27,7 +27,7 @@ resource "aws_iam_role_policy_attachment" "ecs-task-execution-role-policy" {
 }
 
 #
-resource "aws_iam_policy" "ecs_instance_role" {
+resource "aws_iam_policy" "ecs_instance_role_policy" {
   name        = var.ecs_instance_role
   description = "Permissions to enable access b/n ecs and ec2 services"
   policy = <<EOF
@@ -61,8 +61,30 @@ resource "aws_iam_policy" "ecs_instance_role" {
 EOF
 }
 
+resource "aws_iam_role" "ecs_instance_role" {
+  name        = var.ecs_instance_role
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+      },
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "ecs_instance_role_policy_attachment" {
+  role       = aws_iam_role.ecs_instance_role.name
+  policy_arn = aws_iam_policy.ecs_instance_role_policy.arn
+}
 
 resource "aws_iam_instance_profile" "ec2_instance_profile" {
   name = "ec2_instance_profile"
-  role = aws_iam_policy.ecs_instance_role.name
+  role = aws_iam_role.ecs_instance_role.name
 }
