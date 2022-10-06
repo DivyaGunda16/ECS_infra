@@ -1,6 +1,6 @@
 
 //ecr image
-
+/*
 resource "docker_image" "image_name" {
   name = var.image
 }
@@ -47,7 +47,7 @@ resource "aws_ecr_repository_policy" "ecr_repo_policy" {
     ]
 }
 EOF
-}
+}*/
 
 //ecs cluster
 resource "aws_ecs_cluster" "ecs-fe_cluster" {
