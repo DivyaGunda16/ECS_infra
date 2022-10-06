@@ -19,6 +19,10 @@ variable "ecs_task_execution_role" {
   default = "ecsTaskExecutionRole"
 }
 
+variable "ecs_instance_role" {
+  default = "ecsInstanceRole"
+}
+
 variable "container_name" {
   default = "ehq_v8_node"
 }
