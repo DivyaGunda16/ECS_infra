@@ -8,8 +8,8 @@ resource "aws_security_group" "ecs_sg" {
     protocol    = "-1"
     from_port   = 0
     to_port     = 0
-    cidr_blocks = ["0.0.0.0/0"]
- 
+    security_groups = [aws_security_group.alb-sg.id]
+    
   }
 
   ingress {
@@ -17,7 +17,7 @@ resource "aws_security_group" "ecs_sg" {
     protocol        = "tcp"
     from_port       = var.app_port
     to_port         = var.app_port
-    security_groups = [aws_security_group.alb-sg.id]
+    cidr_blocks     = ["0.0.0.0/0"]
   }
 
   egress {
@@ -34,7 +34,7 @@ resource "aws_security_group" "alb-sg" {
   description = "Staging - Internal ALB Ingress Security Group"
   vpc_id      = var.vpc_id
 
-    ingress {
+  ingress {
     protocol    = "-1"
     from_port   = 0
     to_port     = 0
@@ -47,7 +47,8 @@ resource "aws_security_group" "alb-sg" {
     protocol    = "tcp"
    from_port       = "1024" 
    to_port         = "65535"
-    cidr_blocks = ["0.0.0.0/0"]
+    //cidr_blocks = ["0.0.0.0/0"]
+  security_groups = [aws_security_group.alb-sg.id]
   }
 
   egress {
