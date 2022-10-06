@@ -15,8 +15,8 @@ resource "aws_security_group" "ecs_sg" {
   ingress {
     description = "Access from ALB to ECS"
     protocol        = "tcp"
-    from_port       = "1024" //var.app_port
-    to_port         =  "65535"//var.app_port
+    from_port       = var.app_port
+    to_port         = var.app_port
     security_groups = [aws_security_group.alb-sg.id]
   }
 
@@ -45,8 +45,8 @@ resource "aws_security_group" "alb-sg" {
   ingress {
     description = "Access from OpenResty"
     protocol    = "tcp"
-    from_port   = var.app_port
-    to_port     = var.app_port
+   from_port       = "1024" 
+   to_port         = "65535"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
