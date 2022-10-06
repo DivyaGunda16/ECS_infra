@@ -1,3 +1,4 @@
+
 ## ECS task execution role data
 data "aws_iam_policy_document" "ecs-assume-role-policy" {
   version = "2012-10-17"
@@ -20,7 +21,7 @@ resource "aws_iam_role" "ecs_task_execution_role" {
 }
 
 # ECS task execution role policy attachment
-/*resource "aws_iam_policy" "ecs_permissions" {
+resource "aws_iam_policy" "ecs_permissions" {
   name        = "my_ecs_permissions"
   description = "Permissions to enable CT"
   policy = <<EOF
@@ -52,7 +53,7 @@ resource "aws_iam_role" "ecs_task_execution_role" {
   ]
 }
 EOF
-}*/
+}
 
 resource "aws_iam_role_policy_attachment" "ecs-task-execution-role-policy" {
   role       = aws_iam_role.ecs_task_execution_role.name

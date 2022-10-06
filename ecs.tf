@@ -117,6 +117,6 @@ resource "aws_ecs_service" "ecs_service_name" {
 
   }
 
-  //depends_on = [aws_iam_role.ecs_task_execution_role, aws_iam_role_policy_attachment.ecs-task-execution-role-policy, aws_ecr_repository_policy.ecr_repo_policy, aws_iam_instance_profile.ec2_profile, aws_alb_target_group.ALB-TG]
+  depends_on = [aws_iam_role.ecs_task_execution_role, aws_iam_role_policy_attachment.ecs-task-execution-role-policy, aws_iam_instance_profile.ec2_profile, aws_alb_target_group.ALB-TG]
 }
 
