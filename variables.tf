@@ -19,6 +19,10 @@ variable "ecs_task_execution_role" {
   default = "ecsTaskExecutionRole"
 }
 
+variable "ecs_instance_role_policy" {
+  default = "AmazonEC2ContainerServiceforEC2Role"
+}
+
 variable "ecs_instance_role" {
   default = "ecsInstanceRole"
 }

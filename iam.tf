@@ -28,7 +28,7 @@ resource "aws_iam_role_policy_attachment" "ecs-task-execution-role-policy" {
 
 #
 resource "aws_iam_policy" "ecs_instance_role_policy" {
-  name        = var.ecs_instance_role
+  name        = var.ecs_instance_role_policy
   description = "Permissions to enable access b/n ecs and ec2 services"
   policy = <<EOF
 {

@@ -53,11 +53,11 @@ resource "aws_launch_template" "launch_template" {
 
   
   instance_initiated_shutdown_behavior = "terminate"
-
+/*
   instance_market_options {
     market_type = "spot"
   }
-
+*/
   //security_group_names = [ aws_security_group.ecs_sg.id ]
 
   kernel_id = null
