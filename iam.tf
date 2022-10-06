@@ -61,7 +61,7 @@ resource "aws_iam_role_policy_attachment" "ecs-task-execution-role-policy" {
  //policy_arn = "aws_iam_policy.ecs_permissions.arn"
 }
 
-resource "aws_iam_instance_profile" "ec2_profile" {
-  name = "ec2_profile"
+resource "aws_iam_instance_profile" "ec2_instance_profile" {
+  name = "ec2_instance_profile"
   role = aws_iam_role.ecs_task_execution_role.name
 }
