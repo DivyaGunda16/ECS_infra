@@ -48,7 +48,7 @@ resource "aws_launch_template" "launch_template" {
   }
 
   iam_instance_profile {
-     name = aws_iam_instance_profile.ec2_instance_profile.name
+     arn = aws_iam_instance_profile.ec2_instance_profile.arn
   }
 
   
