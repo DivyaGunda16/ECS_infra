@@ -9,7 +9,7 @@ data "aws_iam_policy_document" "ecs-assume-role-policy" {
 
     principals {
       type        = "Service"
-      identifiers = ["ecs.amazonaws.com"]
+      identifiers = ["ecs-tasks.amazonaws.com"]
     }
   }
 }
