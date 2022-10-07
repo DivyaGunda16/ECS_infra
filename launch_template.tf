@@ -32,7 +32,7 @@ resource "aws_launch_template" "launch_template" {
       volume_size = "30"
     }
   }
-   ebs_optimized = true
+   ebs_optimized = false
 
   capacity_reservation_specification {
     capacity_reservation_preference = "open"
