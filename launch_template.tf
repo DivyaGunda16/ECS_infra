@@ -37,11 +37,6 @@ resource "aws_launch_template" "launch_template" {
   capacity_reservation_specification {
     capacity_reservation_preference = "open"
   }
-/*
-  cpu_options {
-    core_count       = 2
-    threads_per_core = 2
-  }*/
 
   credit_specification {
     cpu_credits = "unlimited"
@@ -70,7 +65,7 @@ resource "aws_launch_template" "launch_template" {
   }
 
   network_interfaces {
-    //associate_public_ip_address = false
+    associate_public_ip_address = false
     security_groups = [ "${aws_security_group.ecs_sg.id}" ]
     subnet_id = var.aws_subnet_private1
   }
