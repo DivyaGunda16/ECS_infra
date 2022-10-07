@@ -53,20 +53,10 @@ resource "aws_launch_template" "launch_template" {
 
   
   instance_initiated_shutdown_behavior = "terminate"
-/*
-  instance_market_options {
-    market_type = "spot"
-  }
-*/
-  //security_group_names = [ aws_security_group.ecs_sg.id ]
 
   kernel_id = null
 
   key_name = "btt-ehq-fe"
-
-  /*license_specification {
-    license_configuration_arn = "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef"
-  }*/
 
   metadata_options {
     http_endpoint               = "enabled"
@@ -84,8 +74,6 @@ resource "aws_launch_template" "launch_template" {
     security_groups = [ "${aws_security_group.ecs_sg.id}" ]
     subnet_id = var.aws_subnet_private1
   }
-
-  //vpc_security_group_ids = [ aws_security_group.alb-sg.id ]
 
   placement {
     availability_zone = "eu-west-1"
