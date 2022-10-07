@@ -7,7 +7,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   health_check_type         = "EC2"
   desired_capacity          = 2
   force_delete              = true
-  vpc_zone_identifier       = var.aws_subnet_private
+  //vpc_zone_identifier       = var.aws_subnet_private
   target_group_arns = [ aws_alb_target_group.ALB-TG.arn ]
 
   launch_template {
